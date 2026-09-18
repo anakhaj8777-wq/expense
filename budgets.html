@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFinance Budgets</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">AED</div>
+        <div>
+            <h2>MyFinance</h2>
+            <span>Expense Manager</span>
+        </div>
+    </div>
+
+    <nav>
+        <a class="nav-item" href="index.html">Dashboard</a>
+        <a class="nav-item" href="expenses.html">Expenses</a>
+        <a class="nav-item active" href="budgets.html">Budgets</a>
+        <a class="nav-item" href="reminders.html">Reminders</a>
+        <a class="nav-item" href="reports.html">Reports</a>
+    </nav>
+
+</aside>
+
+<main class="main">
+
+<header class="header">
+    <div>
+        <p class="welcome">Plan your spending</p>
+        <h1>Budgets</h1>
+    </div>
+
+    <div id="currentDate"></div>
+</header>
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+        <p>Monthly Budget</p>
+        <h2 id="budgetPageAmount">AED 0.00</h2>
+        <span>Spending limit</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Spent</p>
+        <h2 id="budgetPageSpent">AED 0.00</h2>
+        <span>This month</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Remaining</p>
+        <h2 id="budgetPageRemaining">AED 0.00</h2>
+        <span>Available budget</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Used</p>
+        <h2 id="budgetPercentage">0%</h2>
+        <span>Of monthly budget</span>
+    </div>
+
+</section>
+
+<section class="panel">
+
+    <div class="panel-header">
+
+        <div>
+            <h2>Monthly Budget</h2>
+            <p>Set and monitor your spending limit</p>
+        </div>
+
+        <button class="primary-btn" onclick="setBudget()">
+            Set Monthly Budget
+        </button>
+
+    </div>
+
+    <div class="large-budget">
+
+        <div class="budget-info">
+            <div>
+                <span>Budget</span>
+                <strong id="largeBudgetAmount">AED 0.00</strong>
+            </div>
+
+            <div>
+                <span>Spent</span>
+                <strong id="largeBudgetSpent">AED 0.00</strong>
+            </div>
+        </div>
+
+        <div class="budget-bar large">
+            <div id="largeBudgetProgress"></div>
+        </div>
+
+        <p id="largeBudgetMessage"></p>
+
+    </div>
+
+</section>
+
+<section class="panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Category Spending</h2>
+            <p>See how your budget is being used</p>
+        </div>
+    </div>
+
+    <div id="budgetCategoryList"></div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

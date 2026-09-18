@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFinance Expenses</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">AED</div>
+        <div>
+            <h2>MyFinance</h2>
+            <span>Expense Manager</span>
+        </div>
+    </div>
+
+    <nav>
+        <a class="nav-item" href="index.html">Dashboard</a>
+        <a class="nav-item active" href="expenses.html">Expenses</a>
+        <a class="nav-item" href="budgets.html">Budgets</a>
+        <a class="nav-item" href="reminders.html">Reminders</a>
+        <a class="nav-item" href="reports.html">Reports</a>
+    </nav>
+
+</aside>
+
+<main class="main">
+
+<header class="header">
+    <div>
+        <p class="welcome">Manage your spending</p>
+        <h1>Expenses</h1>
+    </div>
+
+    <div id="currentDate"></div>
+</header>
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+        <p>This Month</p>
+        <h2 id="expensePageTotal">AED 0.00</h2>
+        <span>Total expenses</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Transactions</p>
+        <h2 id="expenseCount">0</h2>
+        <span>This month</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Average Expense</p>
+        <h2 id="averageExpense">AED 0.00</h2>
+        <span>This month</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Largest Expense</p>
+        <h2 id="largestExpense">AED 0.00</h2>
+        <span>This month</span>
+    </div>
+
+</section>
+
+<section class="panel">
+
+    <div class="panel-header">
+
+        <div>
+            <h2>All Expenses</h2>
+            <p>Add, edit, search or delete expenses</p>
+        </div>
+
+        <button class="primary-btn" onclick="openExpenseModal()">
+            + Add Expense
+        </button>
+
+    </div>
+
+    <div class="filter-row">
+
+        <input
+            type="text"
+            id="searchExpense"
+            placeholder="Search expenses"
+            oninput="displayExpensesPage()"
+        >
+
+        <select id="filterCategory" onchange="displayExpensesPage()">
+            <option value="All">All Categories</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="expensePageList"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+<div class="modal-overlay" id="expenseModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2 id="expenseModalTitle">Add Expense</h2>
+                <p>Enter your expense details</p>
+            </div>
+
+            <button class="close-btn" onclick="closeExpenseModal()">×</button>
+
+        </div>
+
+        <form id="expenseForm">
+
+            <label>
+                Description
+                <input type="text" id="expenseDescription" required>
+            </label>
+
+            <label>
+                Amount
+                <input type="number" id="expenseAmount" min="0.01" step="0.01" required>
+            </label>
+
+            <label>
+                Category
+                <select id="expenseCategory">
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Shopping</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Health</option>
+                    <option>Education</option>
+                    <option>Other</option>
+                </select>
+            </label>
+
+            <label>
+                Date
+                <input type="date" id="expenseDate" required>
+            </label>
+
+            <button type="submit" class="primary-btn full-btn">
+                Save Expense
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

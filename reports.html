@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFinance Reports</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">AED</div>
+        <div>
+            <h2>MyFinance</h2>
+            <span>Expense Manager</span>
+        </div>
+    </div>
+
+    <nav>
+        <a class="nav-item" href="index.html">Dashboard</a>
+        <a class="nav-item" href="expenses.html">Expenses</a>
+        <a class="nav-item" href="budgets.html">Budgets</a>
+        <a class="nav-item" href="reminders.html">Reminders</a>
+        <a class="nav-item active" href="reports.html">Reports</a>
+    </nav>
+
+</aside>
+
+<main class="main">
+
+<header class="header">
+    <div>
+        <p class="welcome">Understand your finances</p>
+        <h1>Reports</h1>
+    </div>
+
+    <div id="currentDate"></div>
+</header>
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+        <p>Total Income</p>
+        <h2 id="reportIncome">AED 0.00</h2>
+        <span>Recorded income</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Total Expenses</p>
+        <h2 id="reportExpense">AED 0.00</h2>
+        <span>Recorded expenses</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Balance</p>
+        <h2 id="reportBalance">AED 0.00</h2>
+        <span>Income minus expenses</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Transactions</p>
+        <h2 id="reportTransactions">0</h2>
+        <span>Total expenses</span>
+    </div>
+
+</section>
+
+<section class="report-grid">
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Category Report</h2>
+                <p>Where your money is going</p>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <canvas id="reportCategoryChart"></canvas>
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Income vs Expenses</h2>
+                <p>Current financial position</p>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <canvas id="incomeExpenseChart"></canvas>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Category Details</h2>
+            <p>Expense totals by category</p>
+        </div>
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+
+            <tbody id="reportCategoryList"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

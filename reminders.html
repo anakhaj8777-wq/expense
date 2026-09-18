@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFinance Reminders</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">AED</div>
+        <div>
+            <h2>MyFinance</h2>
+            <span>Expense Manager</span>
+        </div>
+    </div>
+
+    <nav>
+        <a class="nav-item" href="index.html">Dashboard</a>
+        <a class="nav-item" href="expenses.html">Expenses</a>
+        <a class="nav-item" href="budgets.html">Budgets</a>
+        <a class="nav-item active" href="reminders.html">Reminders</a>
+        <a class="nav-item" href="reports.html">Reports</a>
+    </nav>
+
+</aside>
+
+<main class="main">
+
+<header class="header">
+    <div>
+        <p class="welcome">Never miss an important payment</p>
+        <h1>Reminders</h1>
+    </div>
+
+    <div id="currentDate"></div>
+</header>
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+        <p>Total Reminders</p>
+        <h2 id="totalReminders">0</h2>
+        <span>All reminders</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Pending</p>
+        <h2 id="pendingReminderCount">0</h2>
+        <span>Not completed</span>
+    </div>
+
+    <div class="summary-card">
+        <p>High Priority</p>
+        <h2 id="highPriorityCount">0</h2>
+        <span>Important reminders</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Completed</p>
+        <h2 id="completedReminderCount">0</h2>
+        <span>Finished tasks</span>
+    </div>
+
+</section>
+
+<section class="panel">
+
+    <div class="panel-header">
+
+        <div>
+            <h2>My Reminders</h2>
+            <p>Payment dates and important tasks</p>
+        </div>
+
+        <button class="primary-btn" onclick="openReminderModal()">
+            + Add Reminder
+        </button>
+
+    </div>
+
+    <div id="reminderPageList"></div>
+
+</section>
+
+</main>
+
+<div class="modal-overlay" id="reminderModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Add Reminder</h2>
+                <p>Create a reminder</p>
+            </div>
+
+            <button class="close-btn" onclick="closeReminderModal()">×</button>
+
+        </div>
+
+        <form id="reminderForm">
+
+            <label>
+                Reminder
+                <input type="text" id="reminderTitle" placeholder="Pay electricity bill" required>
+            </label>
+
+            <label>
+                Due Date
+                <input type="date" id="reminderDate" required>
+            </label>
+
+            <label>
+                Time
+                <input type="time" id="reminderTime" required>
+            </label>
+
+            <label>
+                Priority
+                <select id="reminderPriority">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </label>
+
+            <button type="submit" class="primary-btn full-btn">
+                Save Reminder
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
