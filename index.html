@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFinance Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">AED</div>
+        <div>
+            <h2>MyFinance</h2>
+            <span>Expense Manager</span>
+        </div>
+    </div>
+
+    <nav>
+        <a class="nav-item active" href="index.html">Dashboard</a>
+        <a class="nav-item" href="expenses.html">Expenses</a>
+        <a class="nav-item" href="budgets.html">Budgets</a>
+        <a class="nav-item" href="reminders.html">Reminders</a>
+        <a class="nav-item" href="reports.html">Reports</a>
+    </nav>
+
+</aside>
+
+<main class="main">
+
+<header class="header">
+    <div>
+        <p class="welcome">Welcome back 👋</p>
+        <h1>Financial Dashboard</h1>
+    </div>
+
+    <div id="currentDate"></div>
+</header>
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+        <p>Monthly Income</p>
+        <h2 id="totalIncome">AED 0.00</h2>
+        <span>This month</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Monthly Expenses</p>
+        <h2 id="totalExpense">AED 0.00</h2>
+        <span>This month</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Balance</p>
+        <h2 id="balance">AED 0.00</h2>
+        <span>Income minus expenses</span>
+    </div>
+
+    <div class="summary-card">
+        <p>Budget Remaining</p>
+        <h2 id="budgetRemaining">AED 0.00</h2>
+        <span>This month</span>
+    </div>
+
+</section>
+
+<section class="dashboard-grid">
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Monthly Budget</h2>
+                <p>Track your spending limit</p>
+            </div>
+
+            <button class="secondary-btn" onclick="setBudget()">
+                Set Budget
+            </button>
+        </div>
+
+        <div class="budget-info">
+
+            <div>
+                <span>Budget</span>
+                <strong id="budgetAmount">AED 0.00</strong>
+            </div>
+
+            <div>
+                <span>Spent</span>
+                <strong id="budgetSpent">AED 0.00</strong>
+            </div>
+
+        </div>
+
+        <div class="budget-bar">
+            <div id="budgetProgress"></div>
+        </div>
+
+        <p id="budgetMessage"></p>
+
+    </div>
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Spending by Category</h2>
+                <p>This month's expenses</p>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <canvas id="expenseChart"></canvas>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="content-grid">
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Recent Expenses</h2>
+                <p>Your latest transactions</p>
+            </div>
+
+            <a href="expenses.html" class="secondary-btn">
+                View All
+            </a>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody id="recentExpenseList"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Upcoming Reminders</h2>
+                <p>Things you need to remember</p>
+            </div>
+
+            <a href="reminders.html" class="secondary-btn">
+                View All
+            </a>
+        </div>
+
+        <div id="dashboardReminderList"></div>
+
+    </div>
+
+</section>
+
+<section class="bottom-grid">
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Quick Actions</h2>
+                <p>Manage your finances</p>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+
+            <a href="expenses.html" class="quick-action">
+                💸
+                <span>Add Expense</span>
+            </a>
+
+            <button class="quick-action" onclick="addIncome()">
+                💰
+                <span>Add Income</span>
+            </button>
+
+            <a href="budgets.html" class="quick-action">
+                🎯
+                <span>Set Budget</span>
+            </a>
+
+            <a href="reminders.html" class="quick-action">
+                🔔
+                <span>Add Reminder</span>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Budget Status</h2>
+                <p>Current monthly position</p>
+            </div>
+        </div>
+
+        <div id="dashboardBudgetStatus"></div>
+
+    </div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
