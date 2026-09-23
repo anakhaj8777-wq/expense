@@ -452,8 +452,6 @@ function addIncome() {
     updateAllPages();
 }
 
-}
-
 function setBudget() {
 
     const amount = prompt(
