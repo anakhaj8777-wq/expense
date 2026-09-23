@@ -430,7 +430,10 @@ function updateExpensePageStats() {
 
 function addIncome() {
 
-    const amount = prompt("Enter income amount");
+    const amount = prompt(
+        "Enter your monthly income",
+        income > 0 ? income : ""
+    );
 
     if (amount === null) {
         return;
@@ -439,18 +442,15 @@ function addIncome() {
     const value = Number(amount);
 
     if (!Number.isFinite(value) || value <= 0) {
-
         alert("Enter a valid amount");
-
         return;
-
     }
 
-    income += value;
+    income = value;
 
     saveData();
-
     updateAllPages();
+}
 
 }
 
